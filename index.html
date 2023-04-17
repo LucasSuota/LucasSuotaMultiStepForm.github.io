@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi Step Form by Lucas Suota</title>
+  <link rel="icon" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style/general.css">
+  <link rel="stylesheet" href="./style/rightArea.css">
+  <link rel="stylesheet" href="./style/mobile.css">
+  <script src="script/designScript.js" defer></script>
+  <script src="script/generalUI.js" defer></script>
+</head>
+<body>
+  <div class="multiStepFormContainer">
+    <div class="main">
+      <!-- Left Area -->
+      <div class="leftArea">
+        <div class="steps">
+          <div class="step">
+            <p class="stepMark step-1 stepActive">1</p>
+            <div class="stepInfo">
+              <p>STEP 1</p>
+              <p>YOUR INFO</p>
+            </div>
+          </div>
+          <div class="step">
+            <p class="stepMark step-2">2</p>
+            <div class="stepInfo">
+              <p>STEP 2</p>
+              <p>SELECT PLAN</p>
+            </div>
+          </div>
+          <div class="step">
+            <p class="stepMark step-3">3</p>
+            <div class="stepInfo">
+              <p>STEP 3</p>
+              <p>ADD-ONS</p>
+            </div>
+          </div>
+          <div class="step">
+            <p class="stepMark step-4">4</p>
+            <div class="stepInfo">
+              <p>STEP 4</p>
+              <p>SUMMARY</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Right Area -->
+      <div class="rightArea">
+        <div class="rightAreaAll">
+          <!-- Personal Info -->
+          <div class="stepForm personalInfo step1">
+            <div class="formContent">
+              <div class="titleText">
+                <h1>Personal info</h1>
+                <h2>Please provide your name, email address, and phone number.</h2>
+              </div>
+              <div class="userInformationSection">
+                <div class="userInputs">
+                  <p>Name</p>
+                  <input class="userName" placeholder="e.g. Stephen King" type="text">
+                </div>
+                <div class="userInputs">
+                  <p>Email Address</p>
+                  <input class="userEmail" placeholder="e.g. stephenking@lorem.com" type="email">
+                </div>
+                <div class="userInputs">
+                  <p>Phone Number</p>
+                  <input class="userPhoneNumber" placeholder="e.g. +1 234 567 890" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Select Plan -->
+          <div class="stepForm selectPlan step2 d-none">
+            <div class="formContent">
+              <div class="titleText">
+                <h1>Select your plan</h1>
+                <h2>You have the option of monthly or yearly billing.</h2>
+              </div>
+              <div class="planOptions">
+                <div class="planDivision" data-plan="Arcade">
+                  <img src="./assets/images/icon-arcade.svg" alt="arcadeOption">
+                  <div class="titlePrice">
+                    <p>Arcade</p>
+                    <p class="itemPrice">$9/mo</p>
+                  </div>
+                </div>
+                <div class="planDivision" data-plan="Advanced">
+                  <img src="./assets/images/icon-advanced.svg" alt="advancedOption">
+                  <div class="titlePrice">
+                    <p>Advanced</p>
+                    <p class="itemPrice">$12/mo</p>
+                  </div>
+                </div>
+                <div class="planDivision" data-plan="Pro">
+                  <img src="./assets/images/icon-pro.svg" alt="proOption">
+                  <div class="titlePrice">
+                    <p>Pro</p>
+                    <p class="itemPrice">$15/mo</p>
+                  </div>
+                </div>
+              </div>
+              <div class="billing">
+                <p>Monthly</p>
+                <label class="switch">
+                  <input class="checkboxItem" type="checkbox" onclick="billingMethod()">
+                  <span class="slider round"></span>
+                </label>
+                <p>Yearly</p>
+              </div>
+            </div>
+          </div>
+          <!-- Addons -->
+          <div class="stepForm selectAddons step3 d-none">
+            <div class="formContent">
+              <div class="titleText">
+                <h1>Pick add-ons</h1>
+                <h2>Add-ons help enhance your gaming experience</h2>
+              </div>
+              <div class="addonsInformationSection">
+                <div class="userAddons">
+                  <input type="checkbox">
+                  <div class="addonsInfomation">
+                    <div class="textInformation">
+                      <p class="addonTitle" data-addon="Online-Service">Online Service</p>
+                      <p>Access to multiplayer games</p>
+                    </div>
+                        <p class="itemPrice">+$1/mo</p>
+                  </div>
+                </div>
+                <div class="userAddons">
+                  <input type="checkbox">
+                  <div class="addonsInfomation">
+                    <div class="textInformation">
+                      <p class="addonTitle" data-addon="Larger-Storage">Larger Storage</p>
+                      <p>Extra 1TB of cloud save</p>
+                    </div>
+                      <p class="itemPrice">+$2/mo</p>
+                  </div>
+                </div>
+                <div class="userAddons">
+                  <input type="checkbox">
+                  <div class="addonsInfomation">
+                    <div class="textInformation">
+                      <p class="addonTitle" data-addon="Customizable-Profile">Customizable Profile</p>
+                      <p>Custom theme on your profile</p>
+                    </div>
+                    <p class="itemPrice">+$2/mo</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Summary -->
+          <div class="stepForm summary step4 d-none">
+            <div class="formContent">
+              <div class="titleText">
+                <h1>Finishing up</h1>
+                <h2>Double-check everything looks OK before confirming</h2>
+              </div>
+            <div class="lastConfirmation">
+             <div class="planInformationCheck">
+              <div class="planSelected">
+                <p>Plan (monthly or yearly)</p>
+                <a href="#">Change</a>
+              </div>
+              <div class="planValue">
+                <p>price</p>
+              </div>
+            </div>
+            <div class="addonsInformationCheck">
+              <div class="addonsItems d-none">
+                <div class="addonsSelected">
+                  <p>Online Service</p>
+                </div>
+                <div class="addonValue">
+                  <p class="itemPrice">$1/mo</p>
+                </div>
+              </div>
+              <div class="addonsItems d-none">
+                <div class="addonsSelected">
+                  <p>Larger Storage</p>
+                </div>
+                <div class="addonValue">
+                  <p class="itemPrice">$2/mo</p>
+                </div>
+              </div>
+              <div class="addonsItems d-none">
+                <div class="addonsSelected">
+                  <p>Customizable Profile</p>
+                </div>
+                <div class="addonValue">
+                  <p class="itemPrice">$2/mo</p>
+                </div>
+              </div>
+            </div>
+            <div class="totalValue">
+              <p class="totalText">Total (per month/yearly)</p>
+              <p class="totalValuePrice">price/mo/yr</p>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="btnArea">
+          <button class="goBackBtn d-none" onclick="previousStep(-1)">Go Back</button>
+          <button class="nextStepBtn" onclick="nextStep(1)">Next Step</button>
+          <button class="confirmationBtn d-none" onclick="sendInformation()">Confirm</button>
+        </div>
+      </div>
+      <!-- Confirmation -->
+          <div class="stepForm confirmation lastStep d-none">
+            <img src="./assets/images/icon-thank-you.svg" alt="confirmationIcon">
+            <div class="confirmationText">
+              <h1>Thank you!</h1>
+              <p>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com</p>
+              <div class="accessLinks"><p>Design by <a href="https://www.frontendmentor.io/home">Front End Mentor</a></p>
+                <p>Code by <a href="https://www.linkedin.com/in/lucas-suota-91b83b222/">Lucas Suota</a></p></div>
+            </div>
+          </div>
+        </div>
+      </div>  
+      </div>
+    </div>
+  </div>
+</body>
+</html>
